@@ -1,5 +1,5 @@
 import "./App.css";
-import Video1 from "./Video1";
+import Video1 from "./components/Video1";
 
 function App() {
   return (

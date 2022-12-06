@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
-
-interface Size {
-  w: number;
-  h: number;
-}
-const equalSize = (a: Size, b: Size): boolean => {
-  return a.h === b.h && a.w === b.w;
-};
+import "./Video1.css";
+import Size, { equalSize, strSize } from "../Size";
 
 interface Props {
   className: string;
@@ -25,11 +18,9 @@ function Video1(props: Props) {
   const [size1, setSize1] = useState<Size>({ w: -1, h: -1 });
   useEffect(() => {
     const v = video1.current;
-    if (v) {
-      const sz = { h: v.clientHeight, w: v.clientWidth };
-      if (!equalSize(sz, size1)) {
-        setSize1(sz);
-      }
+    const sz = { h: v.clientHeight, w: v.clientWidth };
+    if (!equalSize(sz, size1)) {
+      setSize1(sz);
     }
   });
   const onClickVideo1 = () => {
@@ -48,9 +39,7 @@ function Video1(props: Props) {
     <div ref={video1} onClick={onClickVideo1} className={props.className}>
       <div>
         <p className="text-3xl">video</p>
-        <p>
-          {size1.w} × {size1.h}
-        </p>
+        <p>{strSize(size1)}</p>
       </div>
     </div>
   );
