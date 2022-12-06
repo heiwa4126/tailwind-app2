@@ -1,1 +1,4 @@
 /**/
+.fc {
+  @apply flex items-center justify-center;
+}
