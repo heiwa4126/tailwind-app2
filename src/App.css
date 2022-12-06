@@ -2,3 +2,6 @@
 .fc {
   @apply flex items-center justify-center;
 }
+.v1 {
+  @apply fc h-[360px] w-[640px] font-serif text-white;
+}
