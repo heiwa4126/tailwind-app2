@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import Size, { equalSize, strSize } from "../modules/Size";
 import "./Video1.css";
-import Size, { equalSize, strSize } from "../Size";
 
 interface Props {
   className: string;
