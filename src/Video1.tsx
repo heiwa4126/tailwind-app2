@@ -5,6 +5,9 @@ interface Size {
   w: number;
   h: number;
 }
+const equalSize = (a: Size, b: Size): boolean => {
+  return a.h === b.h && a.w === b.w;
+};
 
 interface Props {
   className: string;
@@ -19,14 +22,12 @@ const sizes: Size[] = [
 function Video1(props: Props) {
   const video1 = useRef<HTMLDivElement>(null!);
   const [i1, setI1] = useState(0);
-  const [size1, setSize1] = useState<Size>({ w: 0, h: 0 });
+  const [size1, setSize1] = useState<Size>({ w: -1, h: -1 });
   useEffect(() => {
-    if (video1.current) {
-      const sz = {
-        h: video1.current.clientHeight,
-        w: video1.current.clientWidth,
-      };
-      if (!(sz.h === size1.h && sz.w === size1.w)) {
+    const v = video1.current;
+    if (v) {
+      const sz = { h: v.clientHeight, w: v.clientWidth };
+      if (!equalSize(sz, size1)) {
         setSize1(sz);
       }
     }
