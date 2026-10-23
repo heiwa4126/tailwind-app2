@@ -6,11 +6,7 @@ interface Props {
   className: string;
 }
 
-const sizes: Size[] = [
-  new Size(640, 360),
-  new Size(256, 256),
-  new Size(512, 480),
-];
+const sizes: Size[] = [new Size(640, 360), new Size(256, 256), new Size(512, 480)];
 
 function Video1(props: Props) {
   const video1 = useRef<HTMLDivElement>(null!);
